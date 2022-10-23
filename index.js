@@ -1,3 +1,5 @@
+import { Task } from './components/Task.js'
+
 let url = new URL('https://apps.kodim.cz/daweb/trening-api/apis/tasks-api/tasks')
 
 const fetchData = () => {
@@ -7,19 +9,6 @@ const fetchData = () => {
 }
 
 fetchData()
-
-const Task = (props) => {
-	const { done, due, name } = props
-	return `
-        <div class="task">
-            <div class="task__body">
-                <div class="task__name">${name}</div>
-                <div class="task__due">${due}</div>
-            </div>
-            <div class="task__done">${done ? '✓' : ''}</div>
-        </div>
-    `
-}
 
 const renderTasks = (data) => {
 	document.querySelector('.todo__tasks').innerHTML = data
